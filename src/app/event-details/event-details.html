@@ -1,0 +1,20 @@
+
+<h1>Détails de l'événement</h1>
+
+@if (event) {
+  <h2>{{ event.title }}</h2>
+
+  <p>Catégorie : {{ event.category }}</p>
+  <p>Date : {{ event.date }}</p>
+  <p>Lieu : {{ event.place }}</p>
+  <p>Prix : {{ event.price }} DT</p>
+  <p>Description : {{ event.description }}</p>
+
+  @if (event.imageUrl) {
+    <img [src]="event.imageUrl" [alt]="event.title" width="250">
+  }
+} @else {
+  <p>Événement introuvable.</p>
+}
+
+<a routerLink="/events">Retour à la liste</a>

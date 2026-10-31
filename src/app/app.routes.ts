@@ -1,4 +1,6 @@
+
 import { Routes } from '@angular/router';
+
 import { Servers } from './servers/servers';
 import { Server } from './server/server';
 import { Home } from './home/home';
@@ -8,15 +10,19 @@ import { Users } from './users/users';
 import { Activity } from './users/activity/activity';
 import { Settings } from './users/settings/settings';
 import { User } from './user/user';
-import { admin_Routes } from './admin/admin.routes';
-import { Products } from './products/products';
+
+import { EventList } from './event-list/event-list';
+import { EventDetails } from './event-details/event-details';
+import { EventForm } from './event-form/event-form';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+
   { path: 'home', component: Home },
   { path: 'servers', component: Servers },
   { path: 'server', component: Server },
   { path: 'profile', component: Profile, data: { title: 'je suis le composant Profile' } },
+
   {
     path: 'users',
     component: Users,
@@ -25,9 +31,16 @@ export const routes: Routes = [
       { path: 'settings', component: Settings },
     ],
   },
-  { path: 'user/:id', component: User },
-  { path: 'contact', loadComponent: () => import('./contact/contact').then((c) => c.Contact) },
-  { path: 'admin', loadChildren: () => import('./admin/admin.routes').then((a) => a.admin_Routes) },
-  { path: 'products' , component: Products},
+
+  { path: 'user/:id/:name', component: User },
+
+  // Routes EventHub
+  { path: 'events', component: EventList },
+  { path: 'events/add', component: EventForm },
+  { path: 'events/:id', component: EventDetails },
+
+  { path: 'contact', loadComponent: () => import('./contact/contact').then(c => c.Contact) },
+  { path: 'admin', loadChildren: () => import('./admin/admin.routes').then(a => a.admin_Routes) },
+
   { path: '**', component: NotFound },
 ];

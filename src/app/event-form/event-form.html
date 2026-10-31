@@ -1,0 +1,97 @@
+
+<h1>Ajouter un événement</h1>
+
+<form [formGroup]="eventForm" (ngSubmit)="addEvent()">
+
+  <div>
+    <label>Titre :</label>
+    <input type="text" formControlName="title">
+
+    @if (hasError('title', 'required')) {
+      <p>Le titre est obligatoire.</p>
+    }
+    @if (hasError('title', 'minlength')) {
+      <p>Minimum 5 caractères.</p>
+    }
+    @if (hasError('title', 'maxlength')) {
+      <p>Maximum 50 caractères.</p>
+    }
+  </div>
+
+  <div>
+    <label>Catégorie :</label>
+    <select formControlName="category">
+      <option [ngValue]="null">Choisir une catégorie</option>
+      <option value="Atelier">Atelier</option>
+      <option value="Conférence">Conférence</option>
+      <option value="Sport">Sport</option>
+    </select>
+
+    @if (hasError('category', 'required')) {
+      <p>La catégorie est obligatoire.</p>
+    }
+  </div>
+
+  <div>
+    <label>Date :</label>
+    <input type="date" formControlName="date">
+
+    @if (hasError('date', 'required')) {
+      <p>La date est obligatoire.</p>
+    }
+  </div>
+
+  <div>
+    <label>Lieu :</label>
+    <input type="text" formControlName="place">
+
+    @if (hasError('place', 'required')) {
+      <p>Le lieu est obligatoire.</p>
+    }
+    @if (hasError('place', 'minlength')) {
+      <p>Minimum 3 caractères.</p>
+    }
+  </div>
+
+  <div>
+    <label>Prix :</label>
+    <input type="number" formControlName="price">
+
+    @if (hasError('price', 'required')) {
+      <p>Le prix est obligatoire.</p>
+    }
+    @if (hasError('price', 'min')) {
+      <p>Le prix doit être supérieur ou égal à 0.</p>
+    }
+  </div>
+
+  <div>
+    <label>URL de l'image (facultatif) :</label>
+    <input type="text" formControlName="imageUrl">
+  </div>
+
+  <div>
+    <label>Description :</label>
+    <textarea formControlName="description"></textarea>
+
+    @if (hasError('description', 'required')) {
+      <p>La description est obligatoire.</p>
+    }
+    @if (hasError('description', 'minlength')) {
+      <p>Minimum 20 caractères.</p>
+    }
+  </div>
+
+  <button type="submit" [disabled]="eventForm.invalid">
+    Ajouter l'événement
+  </button>
+
+</form>
+
+<hr>
+
+<h3>Valeurs du formulaire :</h3>
+<pre>{{ formValue() | json }}</pre>
+
+<h3>Statut :</h3>
+<p>{{ formStatus() }}</p>

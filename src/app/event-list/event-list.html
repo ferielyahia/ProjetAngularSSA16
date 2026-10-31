@@ -1,0 +1,22 @@
+<h1>EventHub</h1>
+
+<div class="statistics">
+  <p>Total : {{ eventCount() }}</p>
+  <p>Favoris : {{ favoriteCount() }}</p>
+  <p>Gratuits : {{ freeEventCount() }}</p>
+</div>
+
+<div class="events-container">
+
+  @for (event of events(); track event.id) {
+
+    <app-event-card
+      [event]="event"
+      [isFavorite]="favorites().includes(event.id)"
+      (favoriteChange)="toggleFavorite($event)"
+      (delete)="deleteEvent($event)">
+    </app-event-card>
+
+  }
+
+</div>

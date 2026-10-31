@@ -1,0 +1,23 @@
+<div class="event-card">
+
+  <h2>{{ event().title }}</h2>
+
+  <p>Catégorie : {{ event().category }}</p>
+  <p>Date : {{ event().date }}</p>
+  <p>Lieu : {{ event().place }}</p>
+  <p>Prix : {{ event().price }} DT</p>
+  <p>{{ event().description }}</p>
+
+  <a [routerLink]="['/events', event().id]">
+    Voir les détails
+  </a>
+
+  <button (click)="toggleFavorite()">
+    {{ isFavorite() ? 'Retirer des favoris' : 'Ajouter aux favoris' }}
+  </button>
+
+  <button (click)="deleteEvent()">
+    Supprimer
+  </button>
+
+</div>

@@ -1,0 +1,57 @@
+
+:host {
+  display: block;
+  max-width: 1200px;
+  margin: 45px auto;
+  padding: 0 24px;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 800;
+  color: #25264b;
+  margin-bottom: 8px;
+}
+
+.statistics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.statistics p {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 5px 25px rgba(40, 40, 90, .06);
+  border-left: 5px solid #7664e8;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.statistics p:nth-child(2) {
+  border-left-color: #ec79b4;
+}
+
+.statistics p:nth-child(3) {
+  border-left-color: #36bca5;
+}
+
+.events-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 850px) {
+  .events-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .statistics, .events-container {
+    grid-template-columns: 1fr;
+  }
+}

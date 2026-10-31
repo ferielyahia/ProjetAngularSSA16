@@ -1,0 +1,55 @@
+
+:host {
+  display: block;
+}
+
+.event-card {
+  height: 100%;
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  border: 1px solid #eeeefa;
+  box-shadow: 0 8px 25px rgba(40, 40, 90, .06);
+  transition: transform .25s, box-shadow .25s;
+}
+
+.event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(80, 70, 160, .13);
+}
+
+.event-card h2 {
+  color: #5144a6;
+  font-size: 21px;
+  margin-top: 0;
+}
+
+.event-card p {
+  color: #686b80;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.event-card button {
+  border: none;
+  padding: 11px 15px;
+  border-radius: 10px;
+  margin: 8px 5px 0 0;
+  font-weight: 600;
+  background: #eeeaff;
+  color: #5b4acb;
+  transition: .2s;
+}
+
+.event-card button:hover {
+  background: #5b4acb;
+  color: white;
+}
+
+.event-card a {
+  display: inline-block;
+  margin-top: 12px;
+  color: #6655d5;
+  font-weight: 700;
+  font-size: 14px;
+}

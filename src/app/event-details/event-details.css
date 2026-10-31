@@ -1,0 +1,48 @@
+
+:host {
+  display: block;
+  max-width: 850px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  color: #29294f;
+  font-size: 30px;
+}
+
+h2 {
+  color: #6655d5;
+  font-size: 26px;
+}
+
+:host > h2,
+:host > p,
+:host > img {
+  display: block;
+}
+
+:host > p {
+  background: white;
+  padding: 16px 20px;
+  margin: 10px 0;
+  border-radius: 12px;
+  color: #555970;
+  box-shadow: 0 3px 15px rgba(40, 40, 90, .04);
+}
+
+img {
+  max-width: 100%;
+  border-radius: 18px;
+  margin: 20px 0;
+}
+
+a {
+  display: inline-block;
+  margin-top: 20px;
+  background: #6655d5;
+  color: white;
+  padding: 13px 22px;
+  border-radius: 11px;
+  font-weight: 600;
+}
